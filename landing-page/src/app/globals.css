@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Brand Colors - Vibrant startup theme */
+  --background: 0 0% 100%;
+  --foreground: 225 15% 15%;
+
+  /* Brand Identity - Vibrant purple/blue/pink */
+  --brand-primary: 270 70% 65%;
+  --brand-secondary: 220 80% 70%;
+  --brand-accent: 320 70% 75%;
+
+  /* Gradients - Vibrant and dynamic */
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(270, 70%, 65%) 0%,
+    hsl(220, 80%, 70%) 50%,
+    hsl(320, 70%, 75%) 100%
+  );
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(270, 70%, 65%) 0%,
+    hsl(220, 80%, 70%) 100%
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    hsl(270, 30%, 97%) 0%,
+    hsl(220, 40%, 98%) 100%
+  );
+  --gradient-card: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+
+  /* Semantic Colors */
+  --card: 0 0% 100%;
+  --card-foreground: 225 15% 15%;
+  --card-soft: 250 60% 98%;
+
+  --primary: 250 70% 60%;
+  --primary-foreground: 0 0% 100%;
+  --primary-hover: 250 70% 55%;
+
+  --secondary: 250 30% 96%;
+  --secondary-foreground: 225 15% 25%;
+  --secondary-hover: 250 30% 92%;
+
+  --muted: 220 13% 96%;
+  --muted-foreground: 220 13% 45%;
+
+  --accent: 200 100% 85%;
+  --accent-foreground: 200 100% 25%;
+
+  /* Interactive States */
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 250 70% 60%;
+
+  /* Spacing & Design */
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+  --shadow-elegant: 0 8px 30px -4px rgba(0, 0, 0, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  /* Glassmorphism */
+  --glass-backdrop: blur(16px) saturate(180%);
+  --glass-border: rgba(255, 255, 255, 0.125);
+
+  /* Typography */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
