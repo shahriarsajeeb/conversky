@@ -98,12 +98,12 @@ export default function Preferences() {
 
     const openPrivacyPolicy = () => {
         // Replace with your actual privacy policy URL
-        Linking.openURL('https://your-privacy-policy-url.com')
+        Linking.openURL('https://www.conversky.com/privacy-policy')
     }
 
     const openTermsOfUse = () => {
         // Replace with your actual terms of use URL
-        Linking.openURL('https://your-terms-of-use-url.com')
+        Linking.openURL('https://www.conversky.com/terms-condition')
     }
 
     const renderSettingItem = (
