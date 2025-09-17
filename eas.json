@@ -16,6 +16,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "support@becodemy.com",
+        "ascAppId": "6752373213",
+        "appleTeamId": "VP9Q5D923N"
+      }
+    }
   }
 }

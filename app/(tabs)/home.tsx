@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { router } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
 import React, { useEffect, useState } from 'react'
-import { Alert, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, KeyboardAvoidingView, Modal, Platform, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 interface Conversation {
@@ -108,7 +108,7 @@ export default function Home() {
     const now = new Date()
     const created = new Date(createdAt)
     const diffInSeconds = Math.floor((now.getTime() - created.getTime()) / 1000)
-    
+
     if (diffInSeconds < 60) {
       return 'Just now'
     } else if (diffInSeconds < 3600) {
@@ -195,8 +195,8 @@ export default function Home() {
   }
 
   const handleTypeSelect = (type: string) => {
-    setNewConversation(prev => ({ 
-      ...prev, 
+    setNewConversation(prev => ({
+      ...prev,
       type,
       context: defaultContexts[conversationTypes.findIndex(t => t.value === type)] || ''
     }))
@@ -250,7 +250,7 @@ export default function Home() {
         context: newConversation.context.trim(),
       }
 
-      const updatedConversations = conversations.map(conv => 
+      const updatedConversations = conversations.map(conv =>
         conv.id === editingConversation.id ? updatedConversation : conv
       )
 
@@ -309,6 +309,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={"dark-content"} backgroundColor={"#000"} />
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
@@ -317,7 +318,7 @@ export default function Home() {
         </View>
 
         {/* Primary Button */}
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.primaryButton}
           onPress={() => setShowNewConversationModal(true)}
         >
@@ -349,8 +350,8 @@ export default function Home() {
           {conversations.length > 0 ? (
             <View style={styles.conversationsList}>
               {conversations.slice(0, 3).map((conversation) => (
-                <TouchableOpacity 
-                  key={conversation.id} 
+                <TouchableOpacity
+                  key={conversation.id}
                   style={styles.conversationItem}
                   onPress={() => router.push(`/conversation/${conversation.id}`)}
                   onLongPress={() => {
@@ -359,12 +360,12 @@ export default function Home() {
                       'What would you like to do?',
                       [
                         { text: 'Cancel', style: 'cancel' },
-                        { 
-                          text: 'Edit', 
+                        {
+                          text: 'Edit',
                           onPress: () => handleEditConversation(conversation)
                         },
-                        { 
-                          text: 'Delete', 
+                        {
+                          text: 'Delete',
                           style: 'destructive',
                           onPress: () => handleDeleteConversation(conversation.id)
                         }
@@ -375,8 +376,8 @@ export default function Home() {
                   <View style={styles.conversationContent}>
                     <Text style={styles.conversationTitle}>{conversation.title}</Text>
                     <Text style={styles.conversationPreview}>
-                      {conversation.context.length > 50 
-                        ? `${conversation.context.substring(0, 50)}...` 
+                      {conversation.context.length > 50
+                        ? `${conversation.context.substring(0, 50)}...`
                         : conversation.context
                       }
                     </Text>
@@ -392,7 +393,7 @@ export default function Home() {
               <Text style={styles.emptyStateSubtitle}>
                 Start your first conversation to begin chatting with your AI assistant
               </Text>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={styles.emptyStateButton}
                 onPress={() => setShowNewConversationModal(true)}
               >
@@ -414,7 +415,7 @@ export default function Home() {
           <View style={styles.modalContent}>
             {/* Header */}
             <View style={styles.modalHeader}>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => {
                   setShowNewConversationModal(false)
@@ -454,10 +455,10 @@ export default function Home() {
                       ]}
                       onPress={() => handleTypeSelect(type.value)}
                     >
-                      <Ionicons 
-                        name={type.icon as any} 
-                        size={20} 
-                        color={newConversation.type === type.value ? '#FFFFFF' : '#6B6B6B'} 
+                      <Ionicons
+                        name={type.icon as any}
+                        size={20}
+                        color={newConversation.type === type.value ? '#FFFFFF' : '#6B6B6B'}
                       />
                       <Text style={[
                         styles.typeOptionText,
@@ -491,7 +492,7 @@ export default function Home() {
               <TouchableOpacity
                 style={[
                   styles.createButton,
-                  (!newConversation.title.trim() || !newConversation.type || !newConversation.context.trim()) && 
+                  (!newConversation.title.trim() || !newConversation.type || !newConversation.context.trim()) &&
                   styles.createButtonDisabled
                 ]}
                 onPress={handleCreateConversation}
@@ -515,7 +516,7 @@ export default function Home() {
           <View style={styles.modalContent}>
             {/* Header */}
             <View style={styles.modalHeader}>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => {
                   setShowEditConversationModal(false)
@@ -556,10 +557,10 @@ export default function Home() {
                       ]}
                       onPress={() => handleTypeSelect(type.value)}
                     >
-                      <Ionicons 
-                        name={type.icon as any} 
-                        size={20} 
-                        color={newConversation.type === type.value ? '#FFFFFF' : '#6B6B6B'} 
+                      <Ionicons
+                        name={type.icon as any}
+                        size={20}
+                        color={newConversation.type === type.value ? '#FFFFFF' : '#6B6B6B'}
                       />
                       <Text style={[
                         styles.typeOptionText,
@@ -593,7 +594,7 @@ export default function Home() {
               <TouchableOpacity
                 style={[
                   styles.createButton,
-                  (!newConversation.title.trim() || !newConversation.type || !newConversation.context.trim()) && 
+                  (!newConversation.title.trim() || !newConversation.type || !newConversation.context.trim()) &&
                   styles.createButtonDisabled
                 ]}
                 onPress={handleUpdateConversation}
@@ -613,65 +614,71 @@ export default function Home() {
         animationType="slide"
         presentationStyle="pageSheet"
       >
-        <SafeAreaView style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            {/* Progress Indicator */}
-            <View style={styles.progressContainer}>
-              <View style={styles.progressBar}>
-                <View
-                  style={[
-                    styles.progressFill,
-                    { width: `${((currentStep + 1) / onboardingSteps.length) * 100}%` }
-                  ]}
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
+        >
+          <SafeAreaView style={[styles.modalContainer, { flex: 1 }]}>
+            <View style={styles.modalContent}>
+              {/* Progress Indicator */}
+              <View style={styles.progressContainer}>
+                <View style={styles.progressBar}>
+                  <View
+                    style={[
+                      styles.progressFill,
+                      { width: `${((currentStep + 1) / onboardingSteps.length) * 100}%` }
+                    ]}
+                  />
+                </View>
+                <Text style={styles.progressText}>{currentStep + 1} of {onboardingSteps.length}</Text>
+              </View>
+
+              {/* Step Content */}
+              <View style={styles.stepContent}>
+                <Text style={styles.stepTitle}>{currentStepData.title}</Text>
+                <Text style={styles.stepSubtitle}>{currentStepData.subtitle}</Text>
+
+                <TextInput
+                  style={styles.input}
+                  placeholder={currentStepData.placeholder}
+                  placeholderTextColor="#6B6B6B"
+                  value={userInfo[currentStepData.key as keyof typeof userInfo]}
+                  onChangeText={(text) => setUserInfo(prev => ({ ...prev, [currentStepData.key]: text }))}
+                  multiline={currentStepData.key === 'interests' || currentStepData.key === 'goals'}
+                  numberOfLines={currentStepData.key === 'interests' || currentStepData.key === 'goals' ? 3 : 1}
                 />
               </View>
-              <Text style={styles.progressText}>{currentStep + 1} of {onboardingSteps.length}</Text>
-            </View>
 
-            {/* Step Content */}
-            <View style={styles.stepContent}>
-              <Text style={styles.stepTitle}>{currentStepData.title}</Text>
-              <Text style={styles.stepSubtitle}>{currentStepData.subtitle}</Text>
+              {/* Navigation Buttons */}
+              <View style={styles.modalButtons}>
+                {currentStep > 0 && (
+                  <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+                    <Text style={styles.backButtonText}>Back</Text>
+                  </TouchableOpacity>
+                )}
 
-              <TextInput
-                style={styles.input}
-                placeholder={currentStepData.placeholder}
-                placeholderTextColor="#6B6B6B"
-                value={userInfo[currentStepData.key as keyof typeof userInfo]}
-                onChangeText={(text) => setUserInfo(prev => ({ ...prev, [currentStepData.key]: text }))}
-                multiline={currentStepData.key === 'interests' || currentStepData.key === 'goals'}
-                numberOfLines={currentStepData.key === 'interests' || currentStepData.key === 'goals' ? 3 : 1}
-              />
-            </View>
-
-            {/* Navigation Buttons */}
-            <View style={styles.modalButtons}>
-              {currentStep > 0 && (
-                <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-                  <Text style={styles.backButtonText}>Back</Text>
+                <TouchableOpacity
+                  style={[
+                    styles.nextButton,
+                    !userInfo[currentStepData.key as keyof typeof userInfo] && styles.nextButtonDisabled
+                  ]}
+                  onPress={handleNext}
+                  disabled={!userInfo[currentStepData.key as keyof typeof userInfo]}
+                >
+                  <Text style={styles.nextButtonText}>
+                    {currentStep === onboardingSteps.length - 1 ? 'Finish' : 'Next'}
+                  </Text>
+                  <Ionicons
+                    name={currentStep === onboardingSteps.length - 1 ? "checkmark" : "arrow-forward"}
+                    size={20}
+                    color="#FFFFFF"
+                  />
                 </TouchableOpacity>
-              )}
-
-              <TouchableOpacity
-                style={[
-                  styles.nextButton,
-                  !userInfo[currentStepData.key as keyof typeof userInfo] && styles.nextButtonDisabled
-                ]}
-                onPress={handleNext}
-                disabled={!userInfo[currentStepData.key as keyof typeof userInfo]}
-              >
-                <Text style={styles.nextButtonText}>
-                  {currentStep === onboardingSteps.length - 1 ? 'Finish' : 'Next'}
-                </Text>
-                <Ionicons
-                  name={currentStep === onboardingSteps.length - 1 ? "checkmark" : "arrow-forward"}
-                  size={20}
-                  color="#FFFFFF"
-                />
-              </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </SafeAreaView>
+          </SafeAreaView>
+        </KeyboardAvoidingView>
       </Modal>
     </SafeAreaView>
   )

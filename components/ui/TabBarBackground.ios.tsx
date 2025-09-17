@@ -5,9 +5,8 @@ import { StyleSheet } from 'react-native';
 export default function BlurTabBarBackground() {
   return (
     <BlurView
-      // System chrome material automatically adapts to the system's theme
-      // and matches the native tab bar appearance on iOS.
-      tint="systemChromeMaterial"
+      // Force light tint so the tab bar background stays light in iOS dark mode
+      tint="light"
       intensity={100}
       style={StyleSheet.absoluteFill}
     />

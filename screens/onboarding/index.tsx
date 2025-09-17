@@ -331,14 +331,6 @@ export default function OnboardingScreen() {
                     {/* Welcome text */}
                     <View style={{ alignItems: 'center', marginBottom: 64 }}>
                         <Text style={{
-                            fontSize: 36,
-                            fontWeight: 'bold',
-                            color: '#111827',
-                            marginBottom: 8
-                        }}>
-                            Hi!
-                        </Text>
-                        <Text style={{
                             fontSize: 20,
                             color: '#7c3aed',
                             fontWeight: '500'
