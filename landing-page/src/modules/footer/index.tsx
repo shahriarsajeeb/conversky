@@ -1,7 +1,8 @@
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative">      
+    <footer className="relative">
       {/* Main footer content */}
       <div className="bg-white border-t border-t-slate-100">
         <div className="container mx-auto px-6 py-12">
@@ -16,24 +17,24 @@ const Footer = () => {
                 Your personal AI assistant
               </p>
             </div>
-            
+
             {/* Right side - Navigation links */}
             <div className="flex flex-wrap gap-8 text-sm text-slate-500">
-              <a href="#" className="hover:text-slate-700 transition-colors duration-200">
+              <Link href="/privacy-policy" className="hover:text-slate-700 transition-colors duration-200">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-slate-700 transition-colors duration-200">
+              </Link>
+              <a href="/terms-condition" className="hover:text-slate-700 transition-colors duration-200">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-slate-700 transition-colors duration-200">
+              <a href="/contact" className="hover:text-slate-700 transition-colors duration-200">
                 Contact
               </a>
             </div>
           </div>
-          
+
           {/* Separator line */}
           <div className="border-t border-slate-200 my-8"></div>
-          
+
           {/* Copyright information */}
           <div className="text-center">
             <p className="text-sm text-slate-600">

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Brain, CheckCircle, Lock, MessageSquare, Settings, Sparkles, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -38,15 +39,19 @@ export function Hero() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button className="h-12 rounded-xl cursor-pointer bg-indigo-600 text-white hover:bg-indigo-500">
-                Download on the App Store
-              </Button>
-              <Button
-                variant="outline"
-                className="h-12 rounded-xl cursor-pointer border-slate-200 bg-white text-slate-900 hover:bg-slate-50"
-              >
-                Get it on Google Play
-              </Button>
+              <Link href={"https://apps.apple.com/us/app/conversky/id6752373213"}>
+                <Button className="h-12 rounded-xl cursor-pointer bg-indigo-600 text-white hover:bg-indigo-500">
+                  Download on the App Store
+                </Button>
+              </Link>
+              <Link href={"#"}>
+                <Button
+                  variant="outline"
+                  className="h-12 rounded-xl cursor-pointer border-slate-200 bg-white text-slate-900 hover:bg-slate-50"
+                >
+                  Get it on Google Play
+                </Button>
+              </Link>
             </div>
 
             {/* Key points (more data without hype) */}
@@ -93,29 +98,29 @@ export function Hero() {
           </div>
         </div>
 
-                 {/* feature strip under hero */}
-         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-           <Feature 
-             title="Personal Memory" 
-             desc="Stored securely on device" 
-             icon={<Brain className="h-5 w-5 text-indigo-600" />}
-           />
-           <Feature 
-             title="Smart Chats" 
-             desc="Email, Work, Personal & more" 
-             icon={<MessageSquare className="h-5 w-5 text-emerald-600" />}
-           />
-           <Feature 
-             title="No Sign-Up" 
-             desc="Start instantly" 
-             icon={<User className="h-5 w-5 text-sky-600" />}
-           />
-           <Feature 
-             title="Custom Preferences" 
-             desc="Model, tone, length" 
-             icon={<Settings className="h-5 w-5 text-purple-600" />}
-           />
-         </div>
+        {/* feature strip under hero */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Feature
+            title="Personal Memory"
+            desc="Stored securely on device"
+            icon={<Brain className="h-5 w-5 text-indigo-600" />}
+          />
+          <Feature
+            title="Smart Chats"
+            desc="Email, Work, Personal & more"
+            icon={<MessageSquare className="h-5 w-5 text-emerald-600" />}
+          />
+          <Feature
+            title="No Sign-Up"
+            desc="Start instantly"
+            icon={<User className="h-5 w-5 text-sky-600" />}
+          />
+          <Feature
+            title="Custom Preferences"
+            desc="Model, tone, length"
+            icon={<Settings className="h-5 w-5 text-purple-600" />}
+          />
+        </div>
       </div>
     </section>
   );
