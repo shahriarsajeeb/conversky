@@ -2,7 +2,7 @@
   "expo": {
     "name": "Conversky",
     "slug": "Conversky",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "conversky",
@@ -47,7 +47,7 @@
         "projectId": "2125b449-3b8e-4f93-81ed-913545436319"
       }
     },
-    "runtimeVersion": "1.1.0",
+    "runtimeVersion": "1.2.0",
     "updates": {
       "url": "https://u.expo.dev/2125b449-3b8e-4f93-81ed-913545436319"
     }
