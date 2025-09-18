@@ -246,12 +246,12 @@ export default function Preferences() {
 
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Version</Text>
-                        <Text style={styles.infoValue}>1.0.0</Text>
+                        <Text style={styles.infoValue}>1.1.0</Text>
                     </View>
 
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Build</Text>
-                        <Text style={styles.infoValue}>2024.1</Text>
+                        <Text style={styles.infoValue}>2025.2</Text>
                     </View>
                 </View>
             </ScrollView>
